@@ -47,25 +47,47 @@ Use SQL queries to complete the following tasks
 
 1. Select the title of all games
 
+`select title from games;`
+
 2. Show all the years in the database.
+
+`select year from games;`
 
 3. Show the title of each game made by 'Rare'.
 
+`select title from games where developers = 'Rare';`
+
 4. Select all games that were made before 1998.
+
+`select * from games where year < 1998;`
 
 5. Find the average release year of all games.
 
+`select avg(year) from games;`
+
 6. Show the developer names of each game, in alphabetical order.
+
+`select title, developers from games order by developers;`
 
 7. Show the titles of games not made by 'Nintendo EAD'.
 
+`select title, developers from games where developers != 'Nintendo EAD';`
+
 8. Add the the game 'F-Zero X', released in 1998, made by 'Nintendo EAD', and with the genre 'Racing'.
+
+`insert into games(title, year, developers, genre) values('F-Zero X', 1998, 'Nintendo EAD', 'Racing');`
 
 9. Show all the game titles in descending order of their release year.
 
+`select title, year from games order by year desc;`
+
 10. Remove all games not made by 'Hudson Soft'.
 
+`delete from games where developers != 'Hudson Soft';`
+
 11. Show the average release year for games that were made by Rare or have the title `Tony Hawk''s Pro Skater` in order of their title
+
+`select avg(year) from games where developers = 'Rare' or title = 'Tony Hawks''s Pro Skater';`
 
 12. Show the id and title and genre of all games that were either:
 
@@ -74,3 +96,5 @@ Use SQL queries to complete the following tasks
   Made by Hal Laboratory,
 
   Or, have the genre Platforming AND are made by Rare.
+
+`select * from games where year < 1997 or developers = 'Hal Laboratory' or genre = 'Platforming' and developers = 'Rare';`  
